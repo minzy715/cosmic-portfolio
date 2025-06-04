@@ -1,0 +1,561 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #0a0a0a;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* 화면 리더 전용 텍스트 숨기기 */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+}
+
+.hero-bg-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: auto;
+  height: 120%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  filter: brightness(20%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 20px;
+}
+
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 5rem;
+  letter-spacing: 6px;
+  margin-bottom: 1rem;
+  opacity: 0;
+  animation: cinematicFadeIn 1.5s forwards;
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+}
+
+.hero-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.5rem;
+  color: #ddd;
+  margin-bottom: 1rem;
+  opacity: 0;
+  animation: cinematicFadeIn 1.5s 0.8s forwards;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.hero-tagline {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  color: #bbb;
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: cinematicFadeIn 1.5s 1.2s forwards;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.hero-button {
+  display: inline-block;
+  background: #4ecdc4;
+  color: #0a0a0a;
+  padding: 14px 36px;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  opacity: 0;
+  transform: translateY(50px);
+  animation: cinematicFadeInUp 1.5s 1.5s forwards;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.hero-button:hover {
+  transform: translateY(0) scale(1.05);
+  box-shadow: 0 8px 20px rgba(78, 205, 196, 0.5);
+}
+
+@keyframes cinematicFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes cinematicFadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(80px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Container 공통 */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* Dual Vision Section */
+.dual-vision {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  margin: 100px 0;
+  background: linear-gradient(90deg, #222 0%, #111 100%);
+  padding: 2px;
+  border-radius: 20px;
+}
+
+.vision-card {
+  background: #0a0a0a;
+  padding: 60px 40px;
+  transition: transform 0.3s;
+}
+
+.vision-card:hover {
+  transform: scale(1.02);
+}
+
+.vision-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  color: #4ecdc4;
+  margin-bottom: 20px;
+}
+
+.vision-card ul {
+  list-style: none;
+}
+
+.vision-card li {
+  margin: 15px 0;
+  padding-left: 30px;
+  position: relative;
+  color: #ddd;
+}
+
+.vision-card li:before {
+  content: "✦";
+  position: absolute;
+  left: 0;
+  color: #4ecdc4;
+}
+
+.cta-button {
+  display: inline-block;
+  margin-top: 20px;
+  background: #4ecdc4;
+  color: #0a0a0a;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(78, 205, 196, 0.4);
+}
+
+/* Interactive Timeline */
+.timeline {
+  margin: 100px 0;
+}
+
+.timeline-title {
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  margin-bottom: 60px;
+  color: #ddd;
+}
+
+.timeline-container {
+  position: relative;
+  padding: 20px 0;
+}
+
+.timeline-item {
+  display: flex;
+  margin-bottom: 60px;
+  position: relative;
+}
+
+.timeline-date {
+  flex: 0 0 200px;
+  text-align: right;
+  padding-right: 40px;
+  font-weight: 600;
+  color: #4ecdc4;
+}
+
+.timeline-content {
+  flex: 1;
+  background: linear-gradient(135deg, #111 0%, #0f0f0f 100%);
+  padding: 30px;
+  border-radius: 15px;
+  transition: transform 0.3s;
+}
+
+.timeline-content:hover {
+  transform: translateX(10px);
+}
+
+.timeline-content h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #ff6b6b;
+}
+
+.timeline-content p {
+  line-height: 1.6;
+  word-break: keep-all;
+  color: #ccc;
+}
+
+/* Project Showcase */
+.projects {
+  margin: 100px 0;
+}
+
+.projects-title {
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  margin-bottom: 60px;
+  color: #ddd;
+}
+
+.works-common {
+  text-align: center;
+  font-size: 1rem;
+  color: #bbb;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  justify-items: center;
+}
+
+.project-card {
+  background: #111;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+  text-align: center;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(78, 205, 196, 0.3);
+}
+
+.project-thumbnail {
+  height: 200px;
+  background: linear-gradient(45deg, #222, #111);
+  position: relative;
+  overflow: hidden;
+}
+
+.project-type {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  color: #4ecdc4;
+}
+
+.project-info {
+  padding: 20px 30px;
+}
+
+.project-info h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #ff6b6b;
+}
+
+.project-summary {
+  color: #ccc;
+  margin-bottom: 12px;
+}
+
+.project-description {
+  color: #ccc;
+  margin-bottom: 12px;
+}
+
+/* 시그니처 영상 <video> 스타일 */
+.project-video {
+  display: block;
+  margin: 20px auto 0;
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  background: #000;
+}
+
+/* 작은 화면에서 추가 축소 */
+@media (max-width: 480px) {
+  .project-video {
+    max-width: 240px;
+  }
+}
+
+/* Video Showcase */
+.video-showcase {
+  margin: 100px 0;
+}
+
+.video-showcase .projects-title {
+  text-align: center;
+  margin-bottom: 40px;
+  color: #ddd;
+}
+
+.video-section {
+  margin-bottom: 80px;
+}
+
+.video-title {
+  text-align: center;
+  font-size: 2rem;
+  color: #ff6b6b;
+  margin-bottom: 20px;
+}
+
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 비율 */
+  height: 0;
+  overflow: hidden;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Skills Constellation */
+.skills {
+  margin: 100px 0;
+  text-align: center;
+}
+
+.skills-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  margin-bottom: 60px;
+  color: #ddd;
+}
+
+.constellation {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.skill-star {
+  background: linear-gradient(135deg, #111, #0f0f0f);
+  padding: 30px;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  position: relative;
+}
+
+.skill-star:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 30px rgba(78, 205, 196, 0.5);
+}
+
+.skill-star h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #4ecdc4;
+}
+
+.skill-star p {
+  font-size: 0.9rem;
+  color: #bbb;
+}
+
+/* Contact Section */
+.contact {
+  text-align: center;
+  margin: 100px 0;
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #111 0%, #0f0f0f 100%);
+  border-radius: 20px;
+}
+
+.contact-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+  color: #fff;
+}
+
+.contact-subtitle {
+  font-size: 1rem;
+  color: #ccc;
+  margin-bottom: 40px;
+  line-height: 1.5;
+}
+
+/* ============================ */
+/*  Contact Section (최종)       */
+/* ============================ */
+
+.contact {
+  text-align: center;
+  margin: 100px 0;
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #111 0%, #0f0f0f 100%);
+  border-radius: 20px;
+}
+
+.contact-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+  color: #FFD700; /* 포인트 컬러: 밝은 노란색 */
+}
+
+.contact-subtitle {
+  font-size: 1rem;
+  color: #ccc;
+  margin-bottom: 40px;
+  line-height: 1.5;
+}
+
+/* 연락처 정보 한 줄 배치 */
+.contact-info-row {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;       /* 아이템 간격 조절 */
+  flex-wrap: wrap; /* 좁아지면 줄바꿈 허용 */
+  color: #bbb;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* 이름(텍스트) */
+.contact-info-row .contact-name {
+  font-weight: 600;
+  color: #FFD700; /* 노란색 포인트 */
+}
+
+/* 구분자(•) */
+.contact-info-row .separator-row {
+  color: #444;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+/* 이메일/전화 링크 */
+.contact-link {
+  text-decoration: none;
+  color: #FFD700; /* 링크 텍스트는 밝은 노란색 */
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.contact-link:hover {
+  color: #fff; /* 호버 시 흰색으로 변경 */
+}
+
+/* 링크 내부 텍스트 */
+.contact-text {
+  display: inline-block;
+}
+
+/* -------------------- */
+/*  반응형 (모바일)     */
+/* -------------------- */
+@media (max-width: 600px) {
+  .contact-info-row {
+    gap: 8px;
+  }
+  .contact-info-row .contact-name,
+  .contact-link {
+    font-size: 0.85rem;
+  }
+  .contact-info-row .separator-row {
+    font-size: 1rem;
+  }
+}
