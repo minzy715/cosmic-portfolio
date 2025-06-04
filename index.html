@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmic Storyteller Portfolio Structure</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(ellipse at center, #1a1a2e 0%, #0a0a0a 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(2px 2px at 20px 30px, #eee, transparent),
+                radial-gradient(2px 2px at 40px 70px, #eee, transparent),
+                radial-gradient(1px 1px at 50px 50px, #eee, transparent);
+            background-size: 200px 200px;
+            animation: twinkle 10s infinite;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
+        
+        .hero-content {
+            text-align: center;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            color: #b8b8b8;
+            opacity: 0;
+            animation: fadeIn 2s 0.5s forwards;
+        }
+        
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+        
+        /* Dual Vision Section */
+        .dual-vision {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2px;
+            margin: 100px 0;
+            background: linear-gradient(90deg, #ff6b6b 0%, #4ecdc4 100%);
+            padding: 2px;
+            border-radius: 20px;
+        }
+        
+        .vision-card {
+            background: #0a0a0a;
+            padding: 60px 40px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        
+        .vision-card:hover {
+            transform: scale(1.02);
+        }
+        
+        .vision-card:first-child {
+            border-radius: 18px 0 0 18px;
+        }
+        
+        .vision-card:last-child {
+            border-radius: 0 18px 18px 0;
+        }
+        
+        .vision-card h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .vision-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .vision-card li {
+            margin: 15px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .vision-card li:before {
+            content: "✦";
+            position: absolute;
+            left: 0;
+            color: #4ecdc4;
+        }
+        
+        /* Timeline Section */
+        .timeline {
+            margin: 100px 0;
+            position: relative;
+        }
+        
+        .timeline-title {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 60px;
+        }
+        
+        .timeline-container {
+            position: relative;
+            padding: 20px 0;
+        }
+        
+        .timeline-item {
+            display: flex;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .timeline-date {
+            flex: 0 0 200px;
+            text-align: right;
+            padding-right: 40px;
+            font-weight: 600;
+            color: #4ecdc4;
+        }
+        
+        .timeline-content {
+            flex: 1;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 30px;
+            border-radius: 15px;
+            position: relative;
+            transition: transform 0.3s;
+        }
+        
+        .timeline-content:hover {
+            transform: translateX(10px);
+        }
+        
+        .timeline-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #ff6b6b;
+        }
+        
+        /* Project Cards */
+        .projects {
+            margin: 100px 0;
+        }
+        
+        .projects-title {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 60px;
+        }
+        
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .project-card {
+            background: #1a1a2e;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(78, 205, 196, 0.3);
+        }
+        
+        .project-thumbnail {
+            height: 200px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-type {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .project-info {
+            padding: 30px;
+        }
+        
+        .project-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .tag {
+            background: rgba(78, 205, 196, 0.2);
+            padding: 6px 14px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            border: 1px solid #4ecdc4;
+        }
+        
+        /* Skills Constellation */
+        .skills {
+            margin: 100px 0;
+            text-align: center;
+        }
+        
+        .skills-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 60px;
+        }
+        
+        .constellation {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .skill-star {
+            background: linear-gradient(135deg, #1a1a2e, #0f3460);
+            padding: 30px;
+            border-radius: 50%;
+            width: 200px;
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .skill-star:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(78, 205, 196, 0.5);
+        }
+        
+        .skill-star h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .skill-star p {
+            font-size: 0.9rem;
+            color: #b8b8b8;
+        }
+        
+        /* Contact Section */
+        .contact {
+            text-align: center;
+            margin: 100px 0;
+            padding: 80px 40px;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border-radius: 30px;
+        }
+        
+        .contact h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 30px;
+        }
+        
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .contact-link {
+            color: #4ecdc4;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+        
+        .contact-link:hover {
+            color: #ff6b6b;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .dual-vision { grid-template-columns: 1fr; }
+            .vision-card:first-child { border-radius: 18px 18px 0 0; }
+            .vision-card:last-child { border-radius: 0 0 18px 18px; }
+            .timeline-item { flex-direction: column; }
+            .timeline-date { text-align: left; margin-bottom: 20px; }
+            .constellation { grid-template-columns: repeat(2, 1fr); }
+            .skill-star { width: 150px; height: 150px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="stars"></div>
+        <div class="hero-content">
+            <h1>민지</h1>
+            <p>Stories Written in Stars, Captured on Film</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Dual Vision Section -->
+        <section class="dual-vision">
+            <div class="vision-card">
+                <h2>🎬 Film Director</h2>
+                <ul>
+                    <li>4편의 단편영화 연출</li>
+                    <li>시각적 스토리텔링 전문</li>
+                    <li>감성과 메시지의 조화</li>
+                    <li>독창적인 영상 언어 구사</li>
+                </ul>
+            </div>
+            <div class="vision-card">
+                <h2>✨ Cosmic Guide</h2>
+                <ul>
+                    <li>루체테아일랜드 점성술사</li>
+                    <li>6개월 온라인 컨설팅</li>
+                    <li>우주적 관점의 인생 해석</li>
+                    <li>개인 맞춤형 운명 가이드</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Interactive Timeline -->
+        <section class="timeline">
+            <h2 class="timeline-title">Journey Through Time & Space</h2>
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <div class="timeline-date">2020-2024</div>
+                    <div class="timeline-content">
+                        <h3>영화영상학과 졸업</h3>
+                        <p>시각적 스토리텔링의 기초를 다지며, 인간의 감정과 우주적 진리를 영상으로 표현하는 법을 익힘</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2021-2023</div>
+                    <div class="timeline-content">
+                        <h3>단편영화 4편 연출</h3>
+                        <p>독립영화부터 공동제작까지 다양한 형태의 영상 프로젝트를 통해 창의적 비전 실현</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2024</div>
+                    <div class="timeline-content">
+                        <h3>루체테아일랜드 점성술사</h3>
+                        <p>6개월간 온라인 점성술 컨설팅을 통해 개인의 운명과 잠재력을 해석하고 가이드</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Showcase -->
+        <section class="projects">
+            <h2 class="projects-title">Works & Wonders</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <div class="project-thumbnail">
+                        <span class="project-type">🎬 Film</span>
+                    </div>
+                    <div class="project-info">
+                        <h3>첫 번째 단편영화</h3>
+                        <p>인간 내면의 우주를 탐구하는 실험적 단편</p>
+                        <div class="project-tags">
+                            <span class="tag">연출</span>
+                            <span class="tag">각본</span>
+                            <span class="tag">편집</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-thumbnail">
+                        <span class="project-type">✨ Astrology</span>
+                    </div>
+                    <div class="project-info">
+                        <h3>운명의 별자리 읽기</h3>
+                        <p>100+ 고객의 점성술 차트 분석 및 인생 가이드</p>
+                        <div class="project-tags">
+                            <span class="tag">점성술</span>
+                            <span class="tag">상담</span>
+                            <span class="tag">분석</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-thumbnail">
+                        <span class="project-type">🎬 Film</span>
+                    </div>
+                    <div class="project-info">
+                        <h3>공동연출 프로젝트</h3>
+                        <p>협업을 통한 창의적 시너지의 결과물</p>
+                        <div class="project-tags">
+                            <span class="tag">공동연출</span>
+                            <span class="tag">팀워크</span>
+                            <span class="tag">크리에이티브</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Constellation -->
+        <section class="skills">
+            <h2 class="skills-title">Constellation of Skills</h2>
+            <div class="constellation">
+                <div class="skill-star">
+                    <h3>Visual Storytelling</h3>
+                    <p>영화 연출 & 편집</p>
+                </div>
+                <div class="skill-star">
+                    <h3>Cosmic Wisdom</h3>
+                    <p>점성술 & 타로</p>
+                </div>
+                <div class="skill-star">
+                    <h3>Creative Direction</h3>
+                    <p>콘셉트 기획 & 비주얼</p>
+                </div>
+                <div class="skill-star">
+                    <h3>Human Connection</h3>
+                    <p>상담 & 공감</p>
+                </div>
+                <div class="skill-star">
+                    <h3>Digital Fluency</h3>
+                    <p>온라인 플랫폼 운영</p>
+                </div>
+                <div class="skill-star">
+                    <h3>Narrative Craft</h3>
+                    <p>스토리 구성 & 각본</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section class="contact">
+            <h2>Let's Create Magic Together</h2>
+            <p>영상으로 이야기를 만들고, 별자리로 운명을 읽는 특별한 여정을 함께하세요</p>
+            <div class="contact-links">
+                <a href="#" class="contact-link">Email</a>
+                <a href="#" class="contact-link">Portfolio</a>
+                <a href="#" class="contact-link">Instagram</a>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
