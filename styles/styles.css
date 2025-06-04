@@ -345,51 +345,13 @@ body {
   margin-bottom: 12px;
 }
 
-/* 시그니처 영상 <video> 스타일 */
-.project-video {
-  display: block;
-  margin: 20px auto 0;
-  max-width: 300px;
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  background: #000;
-}
-
-/* 작은 화면에서 추가 축소 */
-@media (max-width: 480px) {
-  .project-video {
-    max-width: 240px;
-  }
-}
-
-/* Video Showcase */
-.video-showcase {
-  margin: 100px 0;
-}
-
-.video-showcase .projects-title {
-  text-align: center;
-  margin-bottom: 40px;
-  color: #ddd;
-}
-
-.video-section {
-  margin-bottom: 80px;
-}
-
-.video-title {
-  text-align: center;
-  font-size: 2rem;
-  color: #ff6b6b;
-  margin-bottom: 20px;
-}
-
+/* 시그니처 영상 <iframe> 스타일 */
 .video-wrapper {
   position: relative;
   padding-bottom: 56.25%; /* 16:9 비율 */
   height: 0;
   overflow: hidden;
+  margin: 0 auto 20px;
 }
 
 .video-wrapper iframe {
@@ -466,32 +428,6 @@ body {
   font-family: 'Playfair Display', serif;
   font-size: 2.5rem;
   margin-bottom: 12px;
-  color: #fff;
-}
-
-.contact-subtitle {
-  font-size: 1rem;
-  color: #ccc;
-  margin-bottom: 40px;
-  line-height: 1.5;
-}
-
-/* ============================ */
-/*  Contact Section (최종)       */
-/* ============================ */
-
-.contact {
-  text-align: center;
-  margin: 100px 0;
-  padding: 80px 20px;
-  background: linear-gradient(135deg, #111 0%, #0f0f0f 100%);
-  border-radius: 20px;
-}
-
-.contact-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.5rem;
-  margin-bottom: 12px;
   color: #FFD700; /* 포인트 컬러: 밝은 노란색 */
 }
 
@@ -507,8 +443,8 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;       /* 아이템 간격 조절 */
-  flex-wrap: wrap; /* 좁아지면 줄바꿈 허용 */
+  gap: 12px;
+  flex-wrap: wrap;
   color: #bbb;
   font-size: 0.9rem;
   line-height: 1.6;
@@ -545,14 +481,47 @@ body {
 }
 
 /* -------------------- */
-/*  반응형 (모바일)     */
+/* 반응형 (모바일)     */
 /* -------------------- */
 @media (max-width: 600px) {
+  .hero-title {
+    font-size: 3rem;
+  }
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  .hero-tagline {
+    font-size: 0.9rem;
+  }
+  .hero-button {
+    padding: 10px 28px;
+    font-size: 0.9rem;
+  }
+  .dual-vision {
+    grid-template-columns: 1fr;
+  }
+  .vision-card:first-child {
+    border-radius: 18px 18px 0 0;
+  }
+  .vision-card:last-child {
+    border-radius: 0 0 18px 18px;
+  }
+  .timeline-item {
+    flex-direction: column;
+  }
+  .timeline-date {
+    text-align: left;
+    margin-bottom: 20px;
+  }
+  .constellation {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .skill-star {
+    width: 150px;
+    height: 150px;
+  }
   .contact-info-row {
     gap: 8px;
-  }
-  .contact-info-row .contact-name,
-  .contact-link {
     font-size: 0.85rem;
   }
   .contact-info-row .separator-row {
